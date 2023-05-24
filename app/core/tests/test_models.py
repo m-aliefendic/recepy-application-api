@@ -27,7 +27,7 @@ class ModelTests(TestCase):
             ['Test2@Example.com', 'Test2@example.com'],
             ['TEST3@EXAMPLE.com', 'TEST3@example.com'],
             ['test4@example.COM', 'test4@example.com'],
-        ]
+        ]-
 
         for email, expected in sample_emails:
             user = get_user_model().objects.create_user(email, 'sample123')
@@ -38,7 +38,6 @@ class ModelTests(TestCase):
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user('', 'test123')
 
-
     def test_create_superuser(self):
         """Test creating a superuser."""
         user = get_user_model().objects.create_superuser(
@@ -48,5 +47,3 @@ class ModelTests(TestCase):
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
-
-
