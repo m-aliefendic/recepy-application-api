@@ -30,6 +30,7 @@ class PublicUserApiTests(TestCase):
             'password': 'testpass123',
             'name': 'Test Name',
         }
+
         res = self.client.post(CREATE_USER_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
@@ -37,7 +38,7 @@ class PublicUserApiTests(TestCase):
         self.assertTrue(user.check_password(payload['password']))
         self.assertNotIn('password', res.data)
 
-    def test_usser_with_email_exists_error(self):
+    def test_user_with_email_exists_error(self):
         """Test error returned if user with email exists"""
         payload = {
             'email': 'test@example.com',
