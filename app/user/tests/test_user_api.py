@@ -98,6 +98,7 @@ class PublicUserApiTests(TestCase):
         """Test error returned if user not found for given email."""
         payload = {'email': 'test@example.com', 'password': ''}
         res = self.client.post(TOKEN_URL, payload)
+
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
