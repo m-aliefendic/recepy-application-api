@@ -7,11 +7,11 @@ from django.urls import (
     include,
 )
 
-from rest_framework.routes import DefailtRouter
+from rest_framework.routers import DefaultRouter
 
 from recipe import views
 
-router = DefailtRouter()
+router = DefaultRouter()
 router.register('recipes', views.RecipeViewSet)
 
 app_name = 'recipe'
